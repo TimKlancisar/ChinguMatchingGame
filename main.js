@@ -33,7 +33,7 @@ const timer= () => {
 };
 // Calculates and updates star rating
 const calcRating= (pair) => {
-    pair ? rating++ : rating--
+    pair === 'pair' ? rating++ : pair === 'no pair' ? rating-- : rating = rating;
     switch(rating) {
         case 6:
         ratingStar.forEach(img => img.src='media/star-solid.svg');
@@ -71,7 +71,6 @@ const calcRating= (pair) => {
         ? ratingStar.map(el => el.src='media/flame.svg')
         : ratingStar.map(el => el.src='media/poop.svg')
     }
-    console.log(rating)
 };
 // Generates end-game message
 const endMessage= () => {
@@ -117,8 +116,8 @@ const startNewGame= () => {
     if(gameStatus) {
     timerSpan.textContent= "0:00";
     moveSpan.textContent= "0";
-    calcRating();
     varReset();
+    calcRating();
     }
     endMsg.style.visibility='hidden';
     cardWrapper.forEach(el => el.classList.remove('disabled'))
@@ -133,11 +132,11 @@ const checkPair= () => {
     } else if (emotePair.length === 2) {
         if(emotePair[0].parentElement.children[1].style.backgroundImage === emotePair[1].parentElement.children[1].style.backgroundImage) {
             count++;
-            calcRating(true);
+            calcRating('pair');
             if(count === 8) {endGame()}
         } else {
             let temp = [...emotePair];
-            calcRating(false);
+            calcRating('no pair');
             setTimeout(() => temp.map(el => {
                 el.parentElement.parentElement.querySelector('input').checked= false;
                 el.parentElement.parentElement.classList.remove('disabled')
