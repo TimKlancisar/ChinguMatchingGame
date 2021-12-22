@@ -1,0 +1,241 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+}
+body {
+    background-color: #6441a5;
+    background-image: linear-gradient(43deg, #6441a5 0%, #9146ff 71%, #1e90ff 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ul {
+    display: flex;
+    list-style: none;
+    padding-bottom: 5px;
+}
+.disabled {
+    pointer-events: none;
+}
+header, main, footer {
+    width: 90vw;
+    max-width: 800px;
+    min-width: 480px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: tomato;
+    background-color: #24094e;
+    user-select: none;
+}
+/* header style (title + rating) */
+header {
+    padding-bottom: 0;
+}
+header #title {
+    font-family: monospace;
+    font-size: 1.6em;
+}
+@media screen and (max-width: 800px) {
+    header #title {
+        font-size: 1.1em;
+    }
+    header #rating ul li {
+        transform: scale(.8);
+    }
+}
+header #title h1 {
+    line-height: .8;
+    text-transform: uppercase;
+    box-shadow: 0 2px 0 tomato;
+}
+header #title p {
+    font-weight: 700;
+    letter-spacing: 10px;
+    color: #fff;
+}
+header #rating p {
+    font-size: 2.5vh;
+    letter-spacing: 5xp;
+}
+header #rating ul li {
+    padding-top: 6px;
+    height: 40px;
+    width: 40px;
+}
+/* main style(container, cards, transitions) */
+main {
+    flex-flow: row wrap;
+    gap: 15px;
+}
+.card {
+    flex: 1 0 20%;
+    height: 15vh;
+    cursor: help;
+    perspective: 1000px;
+}
+.card input {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+.flip-card-inner {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.card .check:checked ~ .flip-card-inner {
+    transform: rotateY(-180deg);
+  }
+.flip-card-front, .flip-card-back {
+    background-color: tomato;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.flip-card-front {
+    background-image: url('media/twitch-icon.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.flip-card-back {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateY(180deg);
+}
+.card-hidden:hover {
+    animation: shake 1s infinite;
+}
+@keyframes shake {
+    0% {
+      transform: translate(1px, -2px) rotate(-1deg);
+    }
+    10% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    20% {
+      transform: translate(1px, 2px) rotate(0deg);
+    }
+    30% {
+      transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+      transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+      transform: translate(-3px, 0px) rotate(1deg);
+    }
+    100% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+  }
+/* footer style(new game button + move num. + timer) */
+footer {
+    padding-top: 0;
+    padding-bottom: 5px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vw;
+}
+footer > * {
+    padding: 0 40px;
+    text-align: center;
+    font-size: 1.5em;
+}
+footer #new-game {
+    display: grid;
+    place-items: center;
+}
+footer #new-game .svg-wrapper {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    width: 320px;
+    cursor: pointer;
+  }
+footer #new-game .shape {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -474;
+    stroke-width: 8px;
+    fill: transparent;
+    stroke: goldenrod;
+    border-bottom: 5px solid black;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+footer #new-game .text {
+    font-family: 'Roboto Condensed';
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 8px;
+    color: #fff;
+    top: -48px;
+    position: relative;
+}
+footer #new-game .svg-wrapper:hover .text{
+    color: gold;
+}
+footer #new-game .svg-wrapper:hover .shape {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 760;
+    stroke: gold;
+    background-color: tomato;
+}
+footer .stats {
+    margin-top: -30px;
+    width: 100%;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+}
+footer span {
+    color: #fff;
+}
+#end-msg {
+    visibility: hidden;
+    z-index: 11;
+    width: 300px;
+    height: 300px;
+    color: #24094e;
+    background-color: rgba(255, 255, 255, .9);
+    position: absolute;
+    margin: auto;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border: 20px solid #24094e; 
+}

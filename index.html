@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chingu Cohort - Matching Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="end-msg"></div>
+    <header>
+        <div id="title">
+        <h1>Twitch Emote</h1>
+        <p>matching game</p>
+        </div>
+        <div id="rating">
+            <p>Rating:</p>
+            <ul>
+                <li>
+                    <img class="rating-display" src="media/star-solid.svg" alt="star-rating" />
+                </li>
+                <li>
+                    <img class="rating-display" src="media/star-solid.svg" alt="star-rating" />
+                </li>
+                <li>
+                    <img class="rating-display" src="media/star-solid.svg" alt="star-rating" />
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <!-- first row -->
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <!-- second row -->
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <!-- third row -->
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <!-- forth row -->
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+        <div class="card card-hidden">
+            <input class="check" type="checkbox" />
+            <div class="flip-card-inner">
+                <div class="flip-card-front"></div>
+                <div class="flip-card-back"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div id="new-game">
+            <div class="svg-wrapper" onclick="startNewGame()">
+                <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape" height="60" width="320" />
+                  <div class="text">New Game</div>
+                </svg>
+            </div>
+        </div>
+        <div class="stats">
+            <p>Moves: <span id="moves">0</span></p>
+            <p>Timer: <span id="timer">0:00</span></p>
+        </div>
+    </footer>
+</body>
+<script src="main.js"></script>
+<script>
+    window.onload = assignCards;
+</script>
+</html>
