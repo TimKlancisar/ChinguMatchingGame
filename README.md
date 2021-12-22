@@ -1,6 +1,8 @@
 # ChinguMatchingGame
 The project was completed based on the recomendation from https://github.com/chingu-voyages/soloproject-tier2-matching-game. It's a simple browser game where the player's goal is to find all 8 pairs of emotes. It uses html, css and vanilla javascript.
 
+LIVE DEMO: http://noncomposmentis.tech/repository/Chingu%20Cohort/matching-game/index.html
+
 
 ![matching-game](https://user-images.githubusercontent.com/96549344/147156096-9784382c-a140-4233-a866-6f4faf38dd50.jpg)
 
