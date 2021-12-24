@@ -117,8 +117,8 @@ const startNewGame= () => {
     timerSpan.textContent= "0:00";
     moveSpan.textContent= "0";
     varReset();
-    calcRating();
     }
+    calcRating();
     endMsg.style.visibility='hidden';
     cardWrapper.forEach(el => el.classList.remove('disabled'))
     gameStatus= true;
